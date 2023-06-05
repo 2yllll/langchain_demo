@@ -1,6 +1,6 @@
 # GPT & Langchain 例子
 
-## 1. 准备工作
+## 1. [准备工作](./src/share/00_setup.md)
 
 + 要 代理，搭梯子
 + 要 OpenAI 账号
@@ -13,16 +13,12 @@
 + 安装: 3.7版本及其以上的 `python` 
 + 编辑器：`vscode`
     - 含扩展：`python`插件，`jupyter` 笔记本插件
-+ 安装 python 库：`openai`, `langchain`
-    - cmd 命令行：pip3 install openai langchain
 
 ## 3. 导航: 从`GPT`到`LangChain`
 
 + [GPT 例子](./src/share/01_chagpt.ipynb)
 
-## 4. 导航: `LangChain` 组件
-
-# [LangChain](https://python.langchain.com/en/latest/)
+## 4. 导航: [LangChain](https://python.langchain.com/en/latest/)
 
 + [2.1. model: 模型](./src/components/01_model.ipynb)
 + [2.2. prompt: 提示](./src/components/02_prompt.ipynb)
