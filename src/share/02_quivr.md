@@ -41,13 +41,14 @@
 
 ## 3. 到 [Supabase](https://supabase.com/dashboard/projects) 的 SqlEditor 输入下面 4个sql代码，创建4张表
 
-https://github.com/StanGirard/quivr/blob/main/scripts/supabase_new_store_documents.sql
+以 supabase_new_store_documents.sql 为例，打开 上面 sql的内容，整个拷贝到下面的图对应的sql块中
 
-https://github.com/StanGirard/quivr/blob/main/scripts/supabase_usage_table.sql
+![](../../images/20230608230246.png)
 
-https://github.com/StanGirard/quivr/blob/main/scripts/supabase_vector_store_summary.sql
-
-https://github.com/StanGirard/quivr/blob/main/scripts/supabase_users_table.sql
++ https://github.com/StanGirard/quivr/blob/main/scripts/supabase_new_store_documents.sql
++ https://github.com/StanGirard/quivr/blob/main/scripts/supabase_usage_table.sql
++ https://github.com/StanGirard/quivr/blob/main/scripts/supabase_vector_store_summary.sql
++ https://github.com/StanGirard/quivr/blob/main/scripts/supabase_users_table.sql
 
 ## 4. docker 安装 / 启动 服务器
 
