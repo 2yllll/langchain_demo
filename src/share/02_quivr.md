@@ -88,3 +88,22 @@ https://localhost:3000
 docker compose -f docker-compose.yml up
 ```
 
+## 7. 问题
+
+### 7.1. wsl2 代理设置
+
+如果你代理服务器 clash for windows 开在 windows端，默认 localhost:7890
+
+要让 wsl2 访问，首先 clash for windows 打开："允许局域网链接"
+
+![](../../images/20230608220622.png)
+
+在 linux bash, 查看下面文件，注意字段 `nameserver`，它就是 windows上的 localhost
+
+``` bash
+cat /etc/resolv.conf
+```
+
+![](../../images/20230608220906.png)
+
+所以，对windows上的 localhost:7890 对我的 wsl2 的 ubuntu 就是 127.28.31.1:7890
