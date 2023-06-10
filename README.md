@@ -17,7 +17,7 @@
 ## 3. 导航: 从`GPT`到`LangChain`
 
 + [GPT 例子](./src/share/01_chagpt.ipynb)
-+ [QuiVR 部署](./src/share/02_quivr.md)
++ [Quivr](./src/share/02_quivr/README.md)
 
 ## 4. 导航: [LangChain](https://python.langchain.com/en/latest/)
 
