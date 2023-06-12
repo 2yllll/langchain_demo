@@ -3,6 +3,10 @@
 + [Github 仓库](https://github.com/StanGirard/quivr)
 + [知乎教程](https://www.zhihu.com/question/596838257/answer/3042876737)
 
+**注：** 下面的构建以 v0.12 的 git tag 为演示，其他版本可能有别的问题
+
+代码版本对应的hash: ff02e884eb361a77a7a2e00d19edaf4c14d75bb4
+
 ## 1. 准备
 
 必须在 Linux 环境，因为docker执行一些 Linux bash 命令。
