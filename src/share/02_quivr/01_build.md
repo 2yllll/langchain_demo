@@ -18,6 +18,8 @@
     - sudo apt update
     - sudo apt install python3.11
     - python3.11 --version
+    - curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 
+    - pip3.11 -V  # 查看版本
 + [申请 Supabase 账号](https://supabase.com/dashboard/projects)
     - API 密钥
     - 项目 URL
