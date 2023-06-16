@@ -2,10 +2,12 @@
 
 官方 客户端 实现：
 
-+ [Python](https://github.com/qdrant/qdrant-client)
++ `Python`
 + `Rust`
 + `Go`
 + `JS/TS`
+
+源码：[见这里](https://github.com/qdrant/qdrant-client/blob/master/qdrant_client/qdrant_client.py)
 
 ## 1. 集合 `Collection`
 
