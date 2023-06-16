@@ -7,9 +7,7 @@
 + `Go`
 + `JS/TS`
 
-## 概念
-
-1. **集合 Collection**
+## 1. 集合 `Collection`
 
 这类函数主要用于创建、查询、更新、删除和管理集合。
 
@@ -29,7 +27,7 @@
 | get_collection_aliases    | 获取 集合别名              | 无               |
 | upload_collection         | 上传 向量/负载 到 指定集合 | Name，向量，负载 |
 
-2. **向量 Vector**
+## 2. 向量 `Vector`
 
 | 函数名         | 描述                     | 主要参数               |
 | -------------- | ------------------------ | ---------------------- |
@@ -41,7 +39,10 @@
 | delete         | 删除 指定向量            | Name，向量ID           |
 | upload_records | 上传记录                 | Name，向量，负载       |
 
-3. **负载 Payload & 索引 Index**
+## 3. 负载 `Payload` & 索引 `Index`
+
++ `Payload` 指 向量对应的原始内容；
++ `Index` 用于优化查询性能；
 
 | 函数名               | 描述                      | 主要参数               |
 | -------------------- | ------------------------- | ---------------------- |
@@ -52,11 +53,9 @@
 | create_payload_index | 创建 负载字段 的 索引     | Name，字段名，字段模式 |
 | delete_payload_index | 删除 负载字段 的 索引     | Name，字段名           |
 
-4. **快照 Snapshot**
+## 4. 快照 `Snapshot`
 
-这类函数主要用于创建、删除和恢复快照。
-
-快照是数据的一个版本，用于备份和恢复。
+`Snapshot` 数据的一个版本，用于备份和恢复。
 
 | 函数名               | 描述                      | 主要参数               |
 | -------------------- | ------------------------- | ---------------------- |
@@ -68,7 +67,7 @@
 | delete_full_snapshot | 删除 所有快照             | 快照名称               |
 | recover_snapshot     | 从 快照 恢复 集合         | Name，快照位置，优先级 |
 
-5. **搜索 Search & 推荐 Recommend**
+## 5. 搜索 `Search` & 推荐 `Recommend`
 
 这类函数主要用于 搜索 和 推荐 向量。
 
@@ -84,20 +83,22 @@
 | recommend_batch  | 批量 推荐 相似向量 | Name，向量ID列表，参数     |
 | recommend_groups | 按组 推荐 相似向量 | Name，向量ID，组数，参数   |
 
-6. **杂项**
-
-这类函数主要包括各种杂项操作，如获取别名，上传记录，获取锁状态，锁定和解锁存储等。
+## 6. 杂项
 
 | 函数名         | 描述               | 主要参数 |
 | -------------- | ------------------ | -------- |
-| http           | 执行HTTP操作       | HTTP请求 |
-| scroll         | 分页 获取 查询结果 | 分页参数 |
-| get_aliases    | 获取 别名          | 无       |
 | get_locks      | 获取 当前锁状态    | 无       |
 | lock_storage   | 锁定 存储          | 锁定原因 |
 | unlock_storage | 解锁 存储          | 无       |
+| http           | 执行HTTP操作       | HTTP请求 |
+| scroll         | 分页 获取 查询结果 | 分页参数 |
+| get_aliases    | 获取 别名          | 无       |
 
-7. 不用管 **API**
+
+## 7. API
+
++ [Rest](https://qdrant.github.io/qdrant/redoc/index.html) 端口 6333, 支持 OpenAI 3.0 API
++ [gRPC](https://github.com/qdrant/qdrant/blob/master/docs/grpc/docs.md#qdrant-CreateAlias) 端口 6334，二进制，性能高，数据小
 
 | 函数名                 | 描述              | 主要参数 |
 | ---------------------- | ----------------- | -------- |

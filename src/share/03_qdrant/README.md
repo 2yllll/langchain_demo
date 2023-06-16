@@ -2,23 +2,32 @@
 
 Qdrant 是`Rust`语言实现的`向量数据库`。有很多存储方式：
 
-## 导航
-
-+ [01. 入门](./01_qdrant.ipynb)
-+ [02. 客户端](./02_qdrant_client.md)
-
-## API
-
-+ [Rest](https://qdrant.github.io/qdrant/redoc/index.html) 端口 6333, 支持 OpenAI 3.0 API
-+ [gRPC](https://github.com/qdrant/qdrant/blob/master/docs/grpc/docs.md#qdrant-CreateAlias) 端口 6334
-
-## 集成
+已经集成到：
 
 + `LangChain`
 + Microsoft `Semantic Kernel`
 + ChatGPT retrieval Plugin
 
-## 特性
+## 导航
+
++ [01. 入门](./01_qdrant.ipynb)
++ [02. 客户端](./02_qdrant_client.md)
+
+## 客户端
+
+可以存储在：
+
++ 内存：关掉程序会丢失
++ 本地磁盘：Sqlite实现
++ 服务器：通过`Docker` 或 Rust-源码构建 部署
++ 官方云端 Qdrant Clound, 通过 API-KEY 访问
+
+支持的 API 类型：
+
++ [Rest](https://qdrant.github.io/qdrant/redoc/index.html) 端口 6333, 支持 OpenAI 3.0 API
++ [gRPC](https://github.com/qdrant/qdrant/blob/master/docs/grpc/docs.md#qdrant-CreateAlias) 端口 6334，二进制，性能高，数据小
+
+## 数据库特性
 
 + `Filter` and `Payload`
     - 根据 json-payload 进行过滤；
