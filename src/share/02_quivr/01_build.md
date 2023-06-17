@@ -5,19 +5,8 @@
 + Windows 11 + Docker Desktop
 + 安装并启动 Docker Desktop
 + 命令行输入 python3.11 有反应
-    - [安装 Python 3.11](https://www.linuxcapable.com/how-to-install-python-3-11-on-ubuntu-linux/)
-    - sudo apt update  保证包的元信息是最新的
-    - sudo apt upgrade 升级过时的软件包
-    - sudo add-apt-repository ppa:deadsnakes/ppa -y
-        * 可能会失败，失败后不管它，直接执行下面命令看看
-    - sudo apt update
-    - sudo apt install python3.11
-    - python3.11 --version
-    - curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 
-    - pip3.11 -V  # 查看版本
+    - windows 端，安装完 python 3.11 版本后，记得加环境变量，同时复制一份exe，改名为 python3.exe 和 python3.11.exe
 + [申请 Supabase 账号](https://supabase.com/dashboard/projects)
-    - API 密钥
-    - 项目 URL
 
 ## 2. 开始
 
@@ -96,24 +85,3 @@ https://localhost:3000
 ``` bash
 docker compose -f docker-compose.yml up
 ```
-
-## 7. 问题
-
-### 7.1. wsl2 代理设置
-
-如果你代理服务器 clash for windows 开在 windows端，默认 localhost:7890
-
-要让 wsl2 访问，首先 clash for windows 打开："允许局域网链接"
-
-![](../../../images/20230608220622.png)
-
-在 linux bash, 查看下面文件，注意字段 `nameserver`，它就是 windows上的 localhost
-
-``` bash
-cat /etc/resolv.conf
-```
-
-![](../../../images/20230608220906.png)
-
-所以，对windows上的 localhost:7890 对我的 wsl2 的 ubuntu 就是 127.28.31.1:7890
-
