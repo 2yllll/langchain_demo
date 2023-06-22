@@ -4,8 +4,6 @@
 
 + Windows 11 + Docker Desktop
 + 安装并启动 Docker Desktop
-+ 命令行输入 python3.11 有反应
-    - windows 端，安装完 python 3.11 版本后，记得加环境变量，同时复制一份exe，改名为 python3.exe 和 python3.11.exe
 + [申请 Supabase 账号](https://supabase.com/dashboard/projects)
 
 ## 2. 开始
