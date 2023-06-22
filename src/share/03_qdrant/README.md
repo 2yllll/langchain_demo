@@ -10,9 +10,10 @@ Qdrant 是`Rust`语言实现的`向量数据库`。有很多存储方式：
 
 ## 导航
 
-+ [01. 入门](01_qdrant.ipynb)
-+ [02. 概念](02_qdrant_concept.md)
-+ [03. 客户端](03_qdrant_client.py)
++ [01. 入门 笔记本](01_qdrant.ipynb)
++ [02. 笔记本的Python代码](02_qdrant_langchain.py)
++ [03. 概念](03_qdrant_concept.md)
++ [04. 客户端](04_qdrant_client.py)
 
 ## 客户端
 
