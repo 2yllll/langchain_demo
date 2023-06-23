@@ -38,7 +38,7 @@ print(f"+++++++++++++++++++ End: Create Qdrant Client")
 
 print(f"+++++++++++++++++++ Begin: Create Qdrant Collection")
 
-collection_name = 'MyCollection'
+collection_name = 'MyCollection123'
 
 # OpenAI的 嵌入向量 维度 是 1536
 vector_size = 1536
@@ -100,23 +100,10 @@ print(f"doc 0: text = {docs[0].page_content}")
 
 print(f"+++++++++++++++++++ Begin: Upload Document To Qdrant")
 
-texts = [d.page_content for d in docs]
-
-metadatas = [d.metadata for d in docs]
-
-ids = [uuid.uuid4().hex for _ in iter(texts)]
-
-
 batch_size = 64
+succ_ids = qdrant.add_documents(docs, batch_size=batch_size)
 
-succ_ids = qdrant.add_texts(
-    texts,
-    metadatas,
-    ids,
-    batch_size=batch_size,
-)
-
-print(f"+++++++++++++++++++ End: Upload Document To Qdrant")
+print(f"+++++++++++++++++++ End: Upload Document To Qdrant, succ_ids's len = {len(succ_ids)}")
 
 # ================ 搜索
 
