@@ -2,8 +2,6 @@
 
 # 01_qdrant.ipynb 的 纯代码版本
 
-import uuid
-
 # Qdrant python 客户端
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as rest
@@ -74,6 +72,9 @@ qdrant = Qdrant(
 
 print(f"+++++++++++++++++++ End: Create Langchain Qdrant")
 
+names = [d.name for d in qdrant_client.get_collections().collections]
+print(f"------------- MyCollection123 in collections: {'MyCollection123' in names}")
+
 # ================
 
 print("+++++++++++++++++++ Begin: Split Document")
@@ -123,6 +124,10 @@ for i, info in enumerate(s_found_docs):
     # 对 余弦距离，分数 越低越好
     print(f"{i + 1}. score = {score}, ", doc.page_content, "\n")
 
+# ================== 
+
+retriever = qdrant.as_retriever()
+
 # ================== 元数据过滤
 
 query = "What did the president say about Ketanji Brown Jackson"
@@ -140,3 +145,4 @@ filter_docs = qdrant.similarity_search_with_score(
 )
 
 print(f"====================== filter_docs: {filter_docs}")
+
