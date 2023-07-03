@@ -22,3 +22,4 @@
 + [04. 向量数据库：Qdrant with Langchain](src/share/04_qdrant/README.md)
 + [05. Hugging Face Transformer](src/share/05_hugging_face/README.md)
 + [06. pgvector](src/share/06_pgvector/README.md)
++ [07. supaase](src/share/07_supabase/README.md)

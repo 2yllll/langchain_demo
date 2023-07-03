@@ -1,4 +1,4 @@
-# [Quivr](https://github.com/StanGirard/quivr)
+# [Quivr：部署到Supabase云端](https://github.com/StanGirard/quivr)
 
 ## 1. 准备
 
