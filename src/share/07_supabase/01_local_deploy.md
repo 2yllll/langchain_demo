@@ -9,7 +9,7 @@
 
 # [通过`Docker`本地部署`Supabase`](https://supabase.com/docs/guides/self-hosting/docker)
 
-[Github 备份地址]()
+[Github 备份地址](https://github.com/moyy/langchain_demo/blob/main/src/share/07_supabase/01_local_deploy.md)
 
 ## 1. 准备
 
