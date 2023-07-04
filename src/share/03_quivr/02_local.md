@@ -19,7 +19,8 @@
 
 支持的 文件 格式：
    
-+ txt
++ txt：普通文本+
++ html：github 的话，直接爬源码（目前仅python源码）否则就获取这篇html的内容；
 + Markdown
 + PDF
 + Powerpoint
@@ -62,15 +63,15 @@ copy .frontend_env.example frontend/.env
 # 04. 替换 backend/.env 的参数
 
 + SUPABASE_URL=http://localhost:8000 # 一定是 8000，那个是 supabase 的 kong 网关对应的端口，不是3000，也不是3001
-+ SUPABASE_SERVICE_KEY=这里替换成上面 `SERVICE_ROLE_KEY` 对应的 值 
++ SUPABASE_SERVICE_KEY=这里替换成 Supabase本地部署的 `SERVICE_ROLE_KEY` 对应的 值 
 + OPENAI_API_KEY=GPT-API-密钥
-+ JWT_SECRET_KEY=这里替换成上面 `JWT_SECRET` 对应的 值
++ JWT_SECRET_KEY=这里替换成 Supabase本地部署的 `JWT_SECRET` 对应的 值
 
 # 05. 替换 frontend/.env 的参数
 
 + NEXT_PUBLIC_BACKEND_URL=http://localhost:5050
-+ NEXT_PUBLIC_SUPABASE_URL=http://localhost:8000
-+ NEXT_PUBLIC_SUPABASE_ANON_KEY=这里替换成上面 `ANON_KEY` 对应的 值
++ NEXT_PUBLIC_SUPABASE_URL=http://localhost:8000  # 一定是 8000，那个是 supabase 的 kong 网关对应的端口，不是3000，也不是3001
++ NEXT_PUBLIC_SUPABASE_ANON_KEY=这里替换成 Supabase本地部署的 `ANON_KEY` 对应的 值
 
 # 06. 到 本地 supabase 新建 数据库
 
