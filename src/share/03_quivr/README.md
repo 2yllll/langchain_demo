@@ -5,8 +5,7 @@
 
 ## 导航
 
-+ [1. 部署到Supabase云端](./01_remote.md)
-+ [2. 部署到本地](./02_local.md)
++ [1. 部署到本地](./02_local.md)
 + [2. 逻辑 主流程](./03_impl.md)
 + [3. 依赖 Python库](./04_depend.md)
 + [4. FastAPI 简介](./05_fast_api.md)
