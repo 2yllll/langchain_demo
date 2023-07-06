@@ -9,6 +9,10 @@
 - [6. 配置 Kong 网关密钥](#6-配置-kong-网关密钥)
 - [7. 启动](#7-启动)
 - [8. `注意事项`：修改配置后如何生效](#8-注意事项修改配置后如何生效)
+- [9. 功能测试](#9-功能测试)
+  - [9.1. 安装 客户端 Python 包](#91-安装-客户端-python-包)
+  - [9.2. 创建 数据库表](#92-创建-数据库表)
+  - [9.3. Python 测试代码](#93-python-测试代码)
 
 # [通过`Docker`本地部署`Supabase`](https://supabase.com/docs/guides/self-hosting/docker)
 
@@ -64,14 +68,14 @@ copy .env.example .env
 
 # 4. 更新 密钥：用 [这里](https://supabase.com/docs/guides/self-hosting/docker#generate-api-keys) 更新 .env
 
-|键|值|说明|
-|--|--|--|
-|`STUDIO_PORT`|3001|改成3001为了避免和 quivr 起冲突|
-|`SITE_URL`|http://localhost:3001||
-|`POSTGRES_PASSWORD`|123456|数据库密码，按自己意愿设置|
-|`JWT_SECRET`|拷贝 `JWT Secret` 的值|注：每次刷新页面，会随机生成该值，所以请用同一个 JWT 生成下面两个键对应的值！|
-|`ANON_KEY`|将 `Preconfigured Payload` 切成 `ANON_KEY`，点击 `Generate JWT`, 拷贝 `Generated Token`||
-|`SERVICE_ROLE_KEY`|将 `Preconfigured Payload` 切成 `SERVICE_KEY`，点击 `Generate JWT`, 拷贝 `Generated Token`||
+| 键                  | 值                                                                                         | 说明                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| `STUDIO_PORT`       | 3001                                                                                       | 改成3001为了避免和 quivr 起冲突                                               |
+| `SITE_URL`          | http://localhost:3001                                                                      |                                                                               |
+| `POSTGRES_PASSWORD` | 123456                                                                                     | 数据库密码，按自己意愿设置                                                    |
+| `JWT_SECRET`        | 拷贝 `JWT Secret` 的值                                                                     | 注：每次刷新页面，会随机生成该值，所以请用同一个 JWT 生成下面两个键对应的值！ |
+| `ANON_KEY`          | 将 `Preconfigured Payload` 切成 `ANON_KEY`，点击 `Generate JWT`, 拷贝 `Generated Token`    |                                                                               |
+| `SERVICE_ROLE_KEY`  | 将 `Preconfigured Payload` 切成 `SERVICE_KEY`，点击 `Generate JWT`, 拷贝 `Generated Token` |                                                                               |
 
 ![](../../../images/v2-8d8003081dfd8ba5c11f80f30fe9ece4_720w.webp)
 
@@ -142,3 +146,68 @@ docker compose up
 
 + rmdir /S /Q volumes\db\data
 + docker compose up
+
+# 9. 功能测试
+
+supabase 客户端 有 TS / Python 两种 API
+
+下面用 python 代码 简单测试下 supabase 的数据库 功能
+
+## 9.1. 安装 客户端 Python 包
+
+``` bash
+pip3 install supabase==1.0.3
+```
+
+## 9.2. 创建 数据库表
+
++ 到 Supabase 管理端 http://localhost:3001 的 SQL Editor 创建 hello 表
+
+``` sql
+CREATE TABLE  IF NOT EXISTS hello (
+   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+   name TEXT,
+   max_tokens TEXT,
+);
+```
+
+## 9.3. Python 测试代码
+
+``` python
+import traceback
+from supabase.client import create_client
+
+if __name__ == "__main__":
+
+    # Supabase项目 的 API 地址
+    supabase_url = "http://localhost:8000"
+
+    # Service Role Key
+    supabase_service_key = "输入你的 服务器的API密钥"
+
+    supabase_client = None
+    try:
+        supabase_client = create_client(supabase_url=supabase_url, supabase_key=supabase_service_key)
+    except Exception as e:
+        print(f"supabase create_client Error: {e}, trace = {traceback.format_exc()}")    
+
+    if supabase_client:
+        try:
+            table_name = "hello"
+
+            record_name = "hello, world!"
+            
+            # 试图找到名为 "hello, world!" 的记录
+            response = supabase_client.table(table_name).select('*').filter('name', 'eq', record_name).execute()
+            
+            # 如果找到了记录，打印
+            if response and len(response.data) > 0:
+                print(f"Record with name '{record_name}' found, response: {response}")
+            else:
+                # 找不到，插入
+                response = supabase_client.table(table_name).insert({"name": record_name}).execute()
+                print(f"supabase table insert response: {response}")
+
+        except Exception as e:
+            print(f"supabase table insert Error: {e}, trace = {traceback.format_exc()}")
+```
