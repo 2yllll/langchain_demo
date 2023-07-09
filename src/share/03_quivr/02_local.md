@@ -64,16 +64,16 @@
 
 为了方便，也可以用[Supabase官网](https://supabase.com/)的项目。
 
-# 04. 这里以 v0.0.30 的 tag 版本为例
+# 04. 这里以 v0.0.34 的 tag 版本为例
 
 ``` bash
 
-# 运行前，请确保当前目录 没有 quivr_0.0.30
-git clone https://github.com/StanGirard/quivr.git quivr_0.0.30
+# 运行前，请确保当前目录 没有 quivr_34
+git clone https://github.com/StanGirard/quivr.git quivr_34
 
-cd quivr_0.0.30
+cd quivr_34
 
-git checkout v0.0.30
+git checkout v0.0.34
 
 copy .backend_env.example backend/.env
 
